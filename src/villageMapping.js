@@ -2111,7 +2111,7 @@ const villages = [
     id: 403,
     name: 'Wolgast ',
     region: 'W',
-    region: 'wolgast',
+    slug: 'wolgast',
   },
   {
     id: 250,
