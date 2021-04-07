@@ -1,5 +1,5 @@
-import getVillage from '../../src/villageMapping';
-import getIcsFeed from '../../src/dataFetching';
+import getVillage from '../../../src/villageMapping';
+import getIcsFeed from '../../../src/dataFetching';
 import ical from 'node-ical';
 const ics = require('ics');
 

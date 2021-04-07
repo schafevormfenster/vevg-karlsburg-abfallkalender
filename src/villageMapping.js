@@ -1,6 +1,6 @@
 import _, { findWhere } from 'underscore';
 
-const villages = [
+export const villages = [
   {
     id: 301,
     name: 'Ahlbeck',
