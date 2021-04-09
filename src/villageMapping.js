@@ -1,4 +1,4 @@
-import _, { findWhere } from 'underscore';
+import { findWhere } from 'underscore';
 
 export const villages = [
   {
@@ -2207,7 +2207,7 @@ export const villages = [
 ];
 
 const getVillage = slug => {
-  return _.findWhere(villages, { slug: slug });
+  return findWhere(villages, { slug: slug });
 };
 
 export default getVillage;
