@@ -87,5 +87,6 @@ export default async function handler(req, res) {
   // res.status(200).json({ originalEvents: originalEvents, fixedEvents: fixedEvents });
 
   res.setHeader('Content-Type', 'text/calendar; charset=utf8');
+  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate');
   res.status(200).send(icsBody.value);
 }

@@ -11,7 +11,13 @@ export default async function handler(req, res) {
   });
 
   const indexByVillages = {
-    villages: villageIndex,
+    organizer: {
+      name: 'VEVG Karlsburg',
+      fullName: 'Ver- und Entsorgungsgesellschaft des Landkreises Vorpommern-Greifswald mbH',
+      website: 'https://www.vevg-karlsburg.de/',
+      email: 'info@vevg-karlsburg.de',
+      villages: villageIndex,
+    },
   };
 
   res.status(200).json(indexByVillages);
