@@ -8,75 +8,81 @@ export default async function handler(req, res) {
   const village = getVillage(slug[0]);
   if (!village) res.status(400);
 
-  const icsFeed = await getIcsFeed(village.id, village.region);
-  const originalEvents = ical.sync.parseICS(icsFeed);
-
   let fixedEvents = [];
-  let icsEvents = [];
-  for (const event of Object.values(originalEvents)) {
-    if (event.type === 'VEVENT') {
-      let tmpEvent = JSON.parse(JSON.stringify(event));
-      tmpEvent.categories = 'Entsorgung';
-      if (tmpEvent.location.includes('Schadstoffmobil')) {
-        const tmpVillage = tmpEvent.location.split(':')[0].trim();
-        const tmpLocation = tmpEvent.description.split('\n')[0].split(':')[1].trim();
-        tmpEvent.summary = tmpEvent.summary.trim();
-        tmpEvent.location = tmpLocation + ', ' + tmpVillage;
-        tmpEvent.description = tmpEvent.description.split('\n')[0].trim();
-      } else {
-        tmpEvent.description = tmpEvent.summary + '\n' + tmpEvent.location;
-        tmpEvent.location = village.name;
-        if (tmpEvent.summary.includes('Restmüll')) tmpEvent.summary = 'Restmüll';
-        if (tmpEvent.summary.includes('Papier')) tmpEvent.summary = 'Altpapier';
-        if (tmpEvent.summary.includes('gelb')) tmpEvent.summary = 'Gelber Sack';
-      }
+  for (let i = 0; i < village.ids.length; i++) {
+    const icsFeed = await getIcsFeed(village.ids[i].id, village.region);
+    const originalEvents = ical.sync.parseICS(icsFeed);
 
-      const tmpStartDate = new Date(tmpEvent.start);
-      let tmpEndDate = new Date(tmpEvent.end);
-      if (!tmpEndDate.getFullYear()) {
-        tmpEndDate = new Date(tmpEvent.start);
-        tmpEndDate.setMinutes(tmpEndDate.getMinutes() + 30);
-      }
-      const newIcsEvent = {
-        uid: tmpEvent.uid,
-        start: [
-          tmpStartDate.getFullYear(),
-          tmpStartDate.getMonth() + 1,
-          tmpStartDate.getDate(),
-          tmpStartDate.getHours(),
-          tmpStartDate.getMinutes(),
-        ],
-        startInputType: 'local',
-        end: [
-          tmpEndDate.getFullYear(),
-          tmpEndDate.getMonth() + 1,
-          tmpEndDate.getDate(),
-          tmpEndDate.getHours(),
-          tmpEndDate.getMinutes(),
-        ],
-        endInputType: 'local',
-        title: tmpEvent.summary,
-        description: tmpEvent.description,
-        location: tmpEvent.location,
-        categories: [tmpEvent.categories],
-        organizer: { name: 'VEVG Karlsburg', email: 'info@vevg-karlsburg.de' },
-        productId: 'Abfallkalender',
-      };
+    // let icsEvents = [];
+    for (const event of Object.values(originalEvents)) {
+      if (event.type === 'VEVENT') {
+        let tmpEvent = JSON.parse(JSON.stringify(event));
+        tmpEvent.categories = ['Waste disposal'.toUpperCase()];
+        if (tmpEvent.location.includes('Schadstoffmobil')) {
+          const tmpVillage = tmpEvent.location.split(':')[0].trim();
+          const tmpLocation = tmpEvent.description.split('\n')[0].split(':')[1].trim();
+          tmpEvent.summary = tmpEvent.summary.trim();
+          tmpEvent.location = tmpLocation + ', ' + tmpVillage;
+          tmpEvent.description = tmpEvent.description.split('\n')[0].trim();
+          tmpEvent.categories.push('Hazardous waste'.toUpperCase());
+        } else {
+          tmpEvent.description = tmpEvent.summary + '\n' + tmpEvent.location;
+          if (village.ids[i].remark)
+            tmpEvent.description += '\n' + village.name + ' ' + village.ids[i].remark;
+          tmpEvent.location = village.name;
+          if (tmpEvent.summary.includes('Restmüll')) {
+            tmpEvent.summary = 'Restmüll';
+            tmpEvent.categories.push('Residual waste'.toUpperCase());
+          }
+          if (tmpEvent.summary.includes('Papier')) {
+            tmpEvent.summary = 'Altpapier';
+            tmpEvent.categories.push('Waste paper'.toUpperCase());
+          }
+          if (tmpEvent.summary.includes('gelb')) {
+            tmpEvent.summary = 'Gelber Sack';
+            tmpEvent.categories.push('Packaging waste'.toUpperCase());
+          }
+        }
 
-      fixedEvents.push(newIcsEvent);
-      icsEvents.push(ics.createEvent(newIcsEvent));
+        const tmpStartDate = new Date(tmpEvent.start);
+        let tmpEndDate = new Date(tmpEvent.end);
+        if (!tmpEndDate.getFullYear()) {
+          tmpEndDate = new Date(tmpEvent.start);
+          tmpEndDate.setMinutes(tmpEndDate.getMinutes() + 30);
+        }
+        const newIcsEvent = {
+          uid: tmpEvent.uid,
+          start: [
+            tmpStartDate.getFullYear(),
+            tmpStartDate.getMonth() + 1,
+            tmpStartDate.getDate(),
+            tmpStartDate.getHours(),
+            tmpStartDate.getMinutes(),
+          ],
+          startInputType: 'local',
+          end: [
+            tmpEndDate.getFullYear(),
+            tmpEndDate.getMonth() + 1,
+            tmpEndDate.getDate(),
+            tmpEndDate.getHours(),
+            tmpEndDate.getMinutes(),
+          ],
+          endInputType: 'local',
+          title: tmpEvent.summary,
+          description: tmpEvent.description,
+          location: tmpEvent.location,
+          categories: tmpEvent.categories,
+          organizer: { name: 'VEVG Karlsburg', email: 'info@vevg-karlsburg.de' },
+          productId: 'Abfallkalender',
+        };
+
+        fixedEvents.push(newIcsEvent);
+        //icsEvents.push(ics.createEvent(newIcsEvent));
+      }
     }
   }
 
   const icsBody = ics.createEvents(fixedEvents);
-
-  const debug = {
-    village: village,
-    originalEvents: originalEvents,
-    fixedEvents: fixedEvents,
-    icsEvents: icsEvents,
-    ics: ics,
-  };
 
   // res.status(200).json({ originalEvents: originalEvents, fixedEvents: fixedEvents });
 
