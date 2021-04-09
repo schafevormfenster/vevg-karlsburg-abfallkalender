@@ -56,4 +56,5 @@ thing you would love to see here.
 ---
 
 <a href="https://www.schafe-vorm-fenster.org/"><img src="docs/schafe-vorm-fenster_logo.svg" width="50" alt="Schafe vorm Fenster UG"/></a>
+
 `Schafe vorm Fenster`
