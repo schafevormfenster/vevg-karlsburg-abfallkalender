@@ -7,6 +7,8 @@ export default async function handler(req, res) {
   const village = getVillage(slug[0]);
   if (!village) res.status(400);
 
+  const year = new Date().getFullYear();
+
   let fixedEvents = [];
   for (let i = 0; i < village.ids.length; i++) {
     const icsFeed = await getIcsFeed(village.ids[i].id, village.region);
@@ -16,6 +18,16 @@ export default async function handler(req, res) {
       if (event.type === 'VEVENT') {
         let tmpEvent = JSON.parse(JSON.stringify(event));
         tmpEvent.categories = ['Waste disposal'];
+        tmpEvent.htmlLink =
+          'https://www.vevg-karlsburg.de/online-abfallkalender-ovp.html?part=5&param=K&anz=2&key=' +
+          village.ids[i].id +
+          '%23' +
+          encodeURI(village.name) +
+          '%23' +
+          village.region +
+          '%23&year=' +
+          year +
+          '&month=1';
         if (tmpEvent.location.includes('Schadstoffmobil')) {
           const tmpVillage = tmpEvent.location.split(':')[0].trim();
           const tmpLocation = tmpEvent.description.split('\n')[0].split(':')[1].trim();
@@ -54,6 +66,7 @@ export default async function handler(req, res) {
           end: tmpEvent.end,
           updated: tmpEvent.dtstamp,
           categories: tmpEvent.categories,
+          htmlLink: tmpEvent.htmlLink,
           organizer: {
             email: 'info@vevg-karlsburg.de',
             displayName: 'VEVG Karlsburg',
@@ -68,9 +81,13 @@ export default async function handler(req, res) {
   }
 
   const jsonBody = {
-    village: village,
-    events: fixedEvents,
+    village: {
+      name: village.name,
+      slug: village.slug,
+      events: fixedEvents,
+    },
   };
 
+  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate');
   res.status(200).json(jsonBody);
 }
