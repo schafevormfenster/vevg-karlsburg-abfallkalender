@@ -55,7 +55,5 @@ thing you would love to see here.
 
 ---
 
-<div style='text-align: center;'>
-<a href="https://www.schafe-vorm-fenster.org/"><img src="docs/schafe-vorm-fenster_logo.svg" width="50" alt="Schafe vorm Fenster UG"/>
-<p style='font-family: "Courier New",SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace; font-size: 1rem; color: #333;'>Schafe vorm Fenster</p></a>
-</div>
+<a href="https://www.schafe-vorm-fenster.org/"><img src="docs/schafe-vorm-fenster_logo.svg" width="50" alt="Schafe vorm Fenster UG"/></a>
+`Schafe vorm Fenster`
