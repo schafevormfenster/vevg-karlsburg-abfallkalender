@@ -1,14 +1,25 @@
 {
   "name": "vevg-karlsburg-abfallkalender",
-  "description": "API proxy for ICS calendars of VEVG Karlsburg with some data cleanup and optimization.",
+  "description": "API proxy for waste calendars of VEVG Karlsburg with some data optimization.",
   "keywords": [
     "next.js",
     "api",
     "ics",
     "ical"
   ],
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "repository": "github:schafevormfenster/vevg-karlsburg-abfallkalender",
+  "homepage": "https://github.com/schafevormfenster/vevg-karlsburg-abfallkalender",
+  "bugs": {
+    "url": "https://github.com/schafevormfenster/vevg-karlsburg-abfallkalender/issues"
+  },
+  "contributors": [
+    {
+      "name": "Schafe vorm Fenster UG",
+      "email": "jan@schafe-vorm-fenster.de",
+      "url": "https://www.schafe-vorm-fenster.org/"
+    }
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
