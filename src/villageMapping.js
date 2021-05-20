@@ -2723,9 +2723,9 @@ export const villages = [
   },
   {
     ids: [{ id: 1092 }],
-    name: 'Liepe',
+    name: 'Liepe (Hammer a. d. Uecker)',
     region: 'U',
-    slug: 'liepe',
+    slug: 'liepe_hammer-a-d-uecker',
   },
   {
     ids: [{ id: 1093 }],
