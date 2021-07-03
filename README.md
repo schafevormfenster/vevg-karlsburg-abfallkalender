@@ -50,7 +50,7 @@ This API proxy is dedicated to be used for waste calendars of VEVG Karlsburg onl
 expect a generic solution.
 
 The code is functional and tested, but not engineered like a professional commercial project. You
-will find some duplicate code, a non-bullet-proof error handling, no typescript use and maybe other
+will find some parts of duplicate code, a non-bullet-proof error handling, no typescript use and maybe other
 thing you would love to see here.
 
 ---
