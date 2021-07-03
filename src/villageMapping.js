@@ -2195,7 +2195,7 @@ export const villages = [
 
   {
     ids: [{ id: 1001 }],
-    name: 'Ahlbeck',
+    name: 'Ahlbeck, Uecker-Randow',
     region: 'U',
     slug: 'ahlbeck',
   },
