@@ -3,6 +3,7 @@ import getIcsFeed from '../../../src/dataFetching';
 import ical from 'node-ical';
 var _ = require('lodash');
 const ics = require('ics');
+var slugify = require('slugify');
 
 export default async function handler(req, res) {
   let fixedEvents = [];
@@ -28,6 +29,13 @@ export default async function handler(req, res) {
             tmpEvent.categories.push('Hazardous waste'.toUpperCase());
           }
 
+          tmpEvent._id = slugify(`${tmpEvent.start}-${tmpEvent.summary}-${tmpEvent.location}`, {
+            replacement: '-',
+            lower: true,
+            strict: true,
+            locale: 'de',
+          });
+
           const tmpStartDate = new Date(tmpEvent.start);
           let tmpEndDate = new Date(tmpEvent.end);
           if (!tmpEndDate.getFullYear()) {
@@ -35,7 +43,7 @@ export default async function handler(req, res) {
             tmpEndDate.setMinutes(tmpEndDate.getMinutes() + 30);
           }
           const newIcsEvent = {
-            uid: tmpEvent.uid,
+            uid: tmpEvent._id,
             start: [
               tmpStartDate.getFullYear(),
               tmpStartDate.getMonth() + 1,
@@ -68,7 +76,7 @@ export default async function handler(req, res) {
   }
 
   const uniqFixedEvents = _.uniqBy(fixedEvents, function (e) {
-    return e.id;
+    return e.uid;
   });
 
   const icsBody = ics.createEvents(uniqFixedEvents);
