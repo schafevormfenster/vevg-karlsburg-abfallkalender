@@ -1,21 +1,28 @@
 import fetch from 'isomorphic-fetch';
 
-async function getIcsFeed(village, region) {
+async function getIcsFeed(
+  village,
+  region,
+  restmuell = 1,
+  gelbersack = 1,
+  papiertonne = 1,
+  schadstoffmobil = 0
+) {
   const baseUrl = 'https://www.vevg-karlsburg.de/abfallkalender/ical_get_utf8.php';
   const year = new Date().getFullYear();
   const month = new Date().getMonth() + 1;
   const params = [
     {
       key: 'ical_1', // Restmülltonne
-      value: 1,
+      value: restmuell,
     },
     {
       key: 'ical_2', // Gelber Sack
-      value: 1,
+      value: gelbersack,
     },
     {
       key: 'ical_3', // Papiertonne
-      value: 1,
+      value: papiertonne,
     },
     {
       key: 'ical_4', // unknown
@@ -23,7 +30,7 @@ async function getIcsFeed(village, region) {
     },
     {
       key: 'ical_5', // Schadstoffsammlung?
-      value: 0, // TODO: put into a separate feed
+      value: schadstoffmobil, // TODO: put into a separate feed
     },
     {
       key: 'ical_6', // unknown
@@ -53,14 +60,14 @@ async function getIcsFeed(village, region) {
     .join('&');
   const url = baseUrl + '?' + paramString;
 
-  const feed = await fetch(url).then(function (response) {
+  return await fetch(url).then(function (response) {
     if (response.status >= 400) {
       throw new Error('Bad request response from server');
     }
     return response.text();
   });
 
-  return feed;
+  //return feed;
 }
 
 export default getIcsFeed;
