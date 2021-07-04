@@ -6,24 +6,28 @@ async function getIcsFeed(village, region) {
   const month = new Date().getMonth() + 1;
   const params = [
     {
-      key: 'ical_1',
+      key: 'ical_1', // Restmülltonne
       value: 1,
     },
     {
-      key: 'ical_2',
+      key: 'ical_2', // Gelber Sack
       value: 1,
     },
     {
-      key: 'ical_3',
+      key: 'ical_3', // Papiertonne
       value: 1,
     },
     {
-      key: 'ical_4',
-      value: 1,
+      key: 'ical_4', // unknown
+      value: 0,
     },
     {
-      key: 'ical_5',
-      value: 1,
+      key: 'ical_5', // Schadstoffsammlung?
+      value: 0, // TODO: put into a separate feed
+    },
+    {
+      key: 'ical_6', // unknown
+      value: 0,
     },
     {
       key: 'ical_ort',

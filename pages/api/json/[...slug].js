@@ -1,6 +1,7 @@
 import getVillage from '../../../src/villageMapping';
 import getIcsFeed from '../../../src/dataFetching';
 import ical from 'node-ical';
+var slugify = require('slugify');
 
 export default async function handler(req, res) {
   const { slug } = req.query;
@@ -57,9 +58,15 @@ export default async function handler(req, res) {
             }
             tmpEvent.scope = 'community';
           }
+          tmpEvent._id = slugify(`${tmpEvent.start}-${tmpEvent.summary}-${tmpEvent.location}`, {
+            replacement: '-',
+            lower: true,
+            strict: true,
+            locale: 'de',
+          });
 
           const newEvent = {
-            id: tmpEvent.uid,
+            id: tmpEvent._id,
             summary: tmpEvent.summary,
             description: tmpEvent.description,
             location: tmpEvent.location,
@@ -71,6 +78,11 @@ export default async function handler(req, res) {
             organizer: {
               email: 'info@vevg-karlsburg.de',
               displayName: 'VEVG Karlsburg',
+            },
+            village: {
+              name: village.name,
+              slug: village.slug,
+              geonameId: village?.geonameId ? village.geonameId : null,
             },
             visibility: tmpEvent.class.toLowerCase(),
             scope: tmpEvent.scope,
