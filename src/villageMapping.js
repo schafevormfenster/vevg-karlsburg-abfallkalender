@@ -2125,6 +2125,7 @@ export const villages = [
     name: 'Hammer an der Uecker',
     region: 'U',
     slug: 'hammer-an-der-uecker',
+    geonameId: '2911173',
   },
   {
     ids: [{ id: 803 }],
