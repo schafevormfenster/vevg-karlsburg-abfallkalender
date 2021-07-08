@@ -27,6 +27,7 @@ export const villages = [
     name: 'Anklamer Fähre',
     region: 'A',
     slug: 'anklamer-faehre',
+    geonameId: '2928168',
   },
   {
     ids: [
@@ -113,6 +114,7 @@ export const villages = [
     name: 'Fasanenhof',
     region: 'A',
     slug: 'fasanenhof',
+    geonameId: '12253642',
   },
   {
     ids: [{ id: 608 }],
@@ -186,12 +188,6 @@ export const villages = [
     geonameId: '2868160',
   },
   {
-    ids: [{ id: 384 }],
-    name: 'Stagnieß',
-    region: 'W',
-    slug: 'stagniess',
-  },
-  {
     ids: [{ id: 240 }],
     name: 'Steinmocker',
     region: 'A',
@@ -238,6 +234,7 @@ export const villages = [
     name: 'Waldeshöhe',
     region: 'U',
     slug: 'waldeshoehe',
+    geonameId: '2815043',
   },
   {
     ids: [{ id: 837 }],
@@ -414,7 +411,7 @@ export const villages = [
     geonameId: '2877822',
   },
   {
-    ids: [{ id: 390 }],
+    ids: [{ id: 390 }, { id: 384 }],
     name: 'Ückeritz',
     region: 'W',
     slug: 'ueckeritz',
@@ -425,6 +422,7 @@ export const villages = [
     name: 'Hedwigshof',
     region: 'L',
     slug: 'hedwigshof',
+    geonameId: '2908358',
   },
   {
     ids: [{ id: 215 }],
@@ -445,6 +443,7 @@ export const villages = [
     name: 'Krien-Horst',
     region: 'A',
     slug: 'krien-horst',
+    geonameId: '12253643',
   },
   {
     ids: [{ id: 638 }],
@@ -563,6 +562,7 @@ export const villages = [
     name: 'Züsedom',
     region: 'U',
     slug: 'zuesedom',
+    geonameId: '2803657',
   },
   {
     ids: [{ id: 1096 }],
@@ -576,15 +576,17 @@ export const villages = [
     name: 'Marienthal',
     region: 'U',
     slug: 'marienthal',
+    geonameId: '2873479',
   },
   {
     ids: [{ id: 1422 }],
     name: 'Muchowshof',
     region: 'U',
     slug: 'muchowshof',
+    geonameId: '2868925',
   },
   {
-    ids: [{ id: 674 }],
+    ids: [{ id: 674 }, { id: 736 }],
     name: 'Lühmannsdorf',
     region: 'G',
     slug: 'luehmannsdorf',
@@ -595,6 +597,7 @@ export const villages = [
     name: 'Klein Zetelvitz',
     region: 'L',
     slug: 'klein-zetelvitz',
+    geonameId: '2887947',
   },
   {
     ids: [{ id: 345 }],
@@ -608,18 +611,21 @@ export const villages = [
     name: 'Kurtshagen',
     region: 'A',
     slug: 'kurtshagen',
+    geonameId: '2939662',
   },
   {
     ids: [{ id: 228 }],
     name: 'Rubenow, Boldekow',
     region: 'A',
     slug: 'rubenow-boldekow',
+    geonameId: '2843554',
   },
   {
     ids: [{ id: 614 }],
     name: 'Dargezin Vorwerk',
     region: 'G',
     slug: 'dargezin-vorwerk',
+    geonameId: '12253645',
   },
   {
     ids: [{ id: 65 }],
@@ -668,6 +674,7 @@ export const villages = [
     name: 'Heidemühle, Fahrenwalde',
     region: 'U',
     slug: 'heidemuehle',
+    geonameId: '12253647',
   },
   {
     ids: [{ id: 306 }],
@@ -744,12 +751,7 @@ export const villages = [
     name: 'Neuendorf A, Ducherow',
     region: 'A',
     slug: 'neuendorf-a-ducherow',
-  },
-  {
-    ids: [{ id: 736 }],
-    name: 'Alt Brüssow',
-    region: 'G',
-    slug: 'alt-bruessow',
+    geonameId: '2865777',
   },
   {
     ids: [{ id: 604 }],
@@ -763,6 +765,7 @@ export const villages = [
     name: 'Groß Spiegelberg',
     region: 'U',
     slug: 'gross-spiegelberg',
+    geonameId: '2830559',
   },
   {
     ids: [{ id: 164 }],
@@ -776,12 +779,14 @@ export const villages = [
     name: 'Freienstein',
     region: 'U',
     slug: 'freienstein',
+    geonameId: '2925142',
   },
   {
     ids: [{ id: 1100 }],
     name: 'Mittagsberg',
     region: 'U',
     slug: 'mittagsberg',
+    geonameId: '12253648',
   },
   {
     ids: [{ id: 192 }],
@@ -802,6 +807,7 @@ export const villages = [
     name: 'Boldshof',
     region: 'U',
     slug: 'boldshof',
+    geonameId: '2946718',
   },
   {
     ids: [{ id: 626 }],
@@ -815,6 +821,7 @@ export const villages = [
     name: 'Neu Pudagla',
     region: 'W',
     slug: 'neu-pudagla',
+    geonameId: '2864353',
   },
   {
     ids: [{ id: 685 }],
@@ -905,6 +912,7 @@ export const villages = [
     name: 'Rödershorst',
     region: 'U',
     slug: 'roedershorst',
+    geonameId: '2845965',
   },
   {
     ids: [{ id: 640 }],
@@ -925,6 +933,7 @@ export const villages = [
     name: 'Köhnshof',
     region: 'U',
     slug: 'koehnshof',
+    geonameId: '2886492',
   },
   {
     ids: [{ id: 1621 }],
@@ -945,6 +954,7 @@ export const villages = [
     name: 'Friedberg, Pasewalk',
     region: 'U',
     slug: 'friedberg',
+    geonameId: '2924801',
   },
   {
     ids: [{ id: 650 }],
@@ -966,6 +976,7 @@ export const villages = [
     name: 'Neuendorf B, Spantekow',
     region: 'A',
     slug: 'neuendorf-b-spantekow',
+    geonameId: '6548303',
   },
   {
     ids: [{ id: 1429 }],
@@ -1007,6 +1018,7 @@ export const villages = [
     name: 'Gützkow-Meierei',
     region: 'G',
     slug: 'guetzkow-meierei',
+    geonameId: '2872334',
   },
   {
     ids: [{ id: 623 }],
@@ -1020,6 +1032,7 @@ export const villages = [
     name: 'Lünschen Berge',
     region: 'U',
     slug: 'luenschen-berge',
+    geonameId: '12253649',
   },
   {
     ids: [{ id: 398 }],
@@ -1054,12 +1067,14 @@ export const villages = [
     name: 'Neuhof, Stolpe an der Peene',
     region: 'A',
     slug: 'neuhof-stolpe-an-der-peene',
+    geonameId: '2864902',
   },
   {
     ids: [{ id: 1432 }],
     name: 'Papenbeck',
     region: 'U',
     slug: 'papenbeck',
+    geonameId: '2855552',
   },
   {
     ids: [{ id: 235 }],
@@ -1155,6 +1170,7 @@ export const villages = [
     name: 'Neu Stolzenburg',
     region: 'U',
     slug: 'neu-stolzenburg',
+    geonameId: '12253650',
   },
   {
     ids: [{ id: 1618 }],
@@ -1168,12 +1184,14 @@ export const villages = [
     name: 'Stolpe auf Usedom',
     region: 'W',
     slug: 'stolpe-auf-usedom',
+    geonameId: '2826537',
   },
   {
     ids: [{ id: 1342 }],
     name: 'Franzfelde, Pasewalk',
     region: 'U',
     slug: 'franzfelde',
+    geonameId: '2925472',
   },
   {
     ids: [{ id: 715 }],
@@ -1344,6 +1362,7 @@ export const villages = [
     name: 'Stolzenburg',
     region: 'U',
     slug: 'stolzenburg',
+    geonameId: '2826491',
   },
   {
     ids: [{ id: 31 }],
@@ -1364,6 +1383,7 @@ export const villages = [
     name: 'Görke, Postlow',
     region: 'A',
     slug: 'goerke-postlow',
+    geonameId: '2918995',
   },
   {
     ids: [{ id: 223 }],
@@ -1374,9 +1394,10 @@ export const villages = [
   },
   {
     ids: [{ id: 1191 }],
-    name: 'Torgelow-Drögeheide',
+    name: 'Drögeheide',
     region: 'U',
-    slug: 'torgelow-droegeheide',
+    slug: 'droegeheide',
+    geonameId: '2934910',
   },
   {
     ids: [{ id: 693 }],
@@ -1404,6 +1425,7 @@ export const villages = [
     name: 'Stallberg',
     region: 'U',
     slug: 'stallberg',
+    geonameId: '2829615',
   },
   {
     ids: [{ id: 624 }],
@@ -1421,9 +1443,10 @@ export const villages = [
   },
   {
     ids: [{ id: 1225 }],
-    name: 'Torgelow/Holl.',
+    name: 'Torgelow-Holländerei',
     region: 'U',
-    slug: 'torgelow-holl.',
+    slug: 'torgelow-hollaenderei',
+    geonameId: '2821799',
   },
   {
     ids: [{ id: 244 }],
@@ -1549,6 +1572,7 @@ export const villages = [
     name: 'Marienthal',
     region: 'A',
     slug: 'marienthal',
+    geonameId: '2873477',
   },
   {
     ids: [{ id: 602 }],
@@ -1597,6 +1621,7 @@ export const villages = [
     name: 'Grünhof, Rothenklempenow',
     region: 'U',
     slug: 'gruenhof',
+    geonameId: '2914171',
   },
   {
     ids: [{ id: 1341 }],
@@ -1627,6 +1652,7 @@ export const villages = [
     name: 'Neuenkirchen (bei Greifswald)',
     region: 'G',
     slug: 'neuenkirchen-bei-greifswald',
+    geonameId: '2865629',
   },
   { ids: [{ id: 1628 }], name: 'Roggow', region: 'U', slug: 'roggow' },
   {
@@ -1648,6 +1674,7 @@ export const villages = [
     name: 'Neuenkirchen (bei Anklam)',
     region: 'A',
     slug: 'neuenkirchen-bei-anklam',
+    geonameId: '2865631',
   },
   {
     ids: [{ id: 201 }],
@@ -1723,6 +1750,7 @@ export const villages = [
     name: 'Görke, Dargen',
     region: 'W',
     slug: 'goerke-dargen',
+    geonameId: '2918994',
   },
   {
     ids: [{ id: 342 }],
@@ -1785,6 +1813,7 @@ export const villages = [
     name: 'Friedrichshof, Fahrenwalde',
     region: 'U',
     slug: 'friedrichshof',
+    geonameId: '2924539',
   },
   {
     ids: [{ id: 1088 }],
@@ -1805,12 +1834,14 @@ export const villages = [
     name: 'Steinbrink',
     region: 'U',
     slug: 'steinbrink',
+    geonameId: '12253651',
   },
   {
     ids: [{ id: 686 }],
     name: 'Neuendorf, Gützkow',
     region: 'G',
     slug: 'neuendorf-guetzkow',
+    geonameId: '2865772',
   },
   {
     ids: [{ id: 1715 }],
@@ -1858,6 +1889,7 @@ export const villages = [
     name: 'Stilow-Siedlung',
     region: 'G',
     slug: 'stilow-siedlung',
+    geonameId: '2827003',
   },
   {
     ids: [{ id: 1377 }],
@@ -1878,6 +1910,7 @@ export const villages = [
     name: 'Breitenstein',
     region: 'U',
     slug: 'breitenstein',
+    geonameId: '2944551',
   },
   {
     ids: [{ id: 198 }],
@@ -1898,12 +1931,14 @@ export const villages = [
     name: 'Jägerhof',
     region: 'G',
     slug: 'jaegerhof',
+    geonameId: '2895388',
   },
   {
     ids: [{ id: 1375 }],
     name: 'Kuhlmorgen',
     region: 'U',
     slug: 'kuhlmorgen',
+    geonameId: '2915365',
   },
   {
     ids: [{ id: 243 }],
@@ -2001,6 +2036,7 @@ export const villages = [
     name: 'Borckenfriede',
     region: 'U',
     slug: 'borckenfriede',
+    geonameId: '12253653',
   },
   {
     ids: [{ id: 217 }],
@@ -2014,12 +2050,14 @@ export const villages = [
     name: 'Damerow',
     region: 'U',
     slug: 'damerow',
+    geonameId: '2939224',
   },
   {
     ids: [{ id: 400 }],
-    name: 'West-Klüne',
+    name: 'Westklüne',
     region: 'W',
-    slug: 'west-kluene',
+    slug: 'westkluene',
+    geonameId: '12253654',
   },
   {
     ids: [{ id: 1365 }],
@@ -2046,6 +2084,7 @@ export const villages = [
     name: 'Groß Zetelvitz',
     region: 'L',
     slug: 'gross-zetelvitz',
+    geonameId: '2914810',
   },
   {
     ids: [{ id: 723 }],
@@ -2066,6 +2105,7 @@ export const villages = [
     name: 'Ravensmühle',
     region: 'U',
     slug: 'ravensmuehle',
+    geonameId: '12253655',
   },
   {
     ids: [{ id: 1367 }],
@@ -2093,6 +2133,7 @@ export const villages = [
     name: 'Riesenbrück',
     region: 'U',
     slug: 'riesenbrueck',
+    geonameId: '2846878',
   },
   {
     ids: [{ id: 251 }],
