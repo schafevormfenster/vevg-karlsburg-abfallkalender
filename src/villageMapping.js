@@ -3477,6 +3477,7 @@ export const villages = [
     name: 'Liepe (Hammer an der Uecker)',
     region: 'U',
     slug: 'liepe_hammer-an-der-uecker',
+    geonameId: '2877823',
   },
   {
     ids: [{ id: 1381 }],
