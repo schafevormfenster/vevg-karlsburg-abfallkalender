@@ -4245,8 +4245,8 @@ export const villages = [
 ];
 
 const getVillage = slug => {
-  if (slug.includes('geoname.')) {
-    const geonameId = slug.split('.')[1];
+  if (slug.includes('geoname-')) {
+    const geonameId = slug.split('-')[1];
     return findWhere(villages, { geonameId: geonameId });
   } else {
     return findWhere(villages, { slug: slug });
