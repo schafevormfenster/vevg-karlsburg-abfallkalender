@@ -9,8 +9,10 @@ async function getIcsFeed(
   schadstoffmobil = 0
 ) {
   const baseUrl = 'https://www.vevg-karlsburg.de/abfallkalender/ical_get_utf8.php';
-  const year = new Date().getFullYear();
-  const month = new Date().getMonth() + 1;
+  var now = new Date();
+  const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+  const year = nextMonth.getFullYear();
+  const month = nextMonth.getMonth() + 1;
   const params = [
     {
       key: 'ical_1', // Restmülltonne
