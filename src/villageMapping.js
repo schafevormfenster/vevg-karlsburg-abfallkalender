@@ -3127,6 +3127,14 @@ export const villages = [
     geonameId: '2871654',
   },
   {
+    ids: [{ id: 676 }],
+    name: 'Brook',
+    region: 'G',
+    slug: 'brook',
+    geonameId: '2943742',
+
+  },
+  {
     ids: [{ id: 355 }],
     name: 'Mölschow',
     region: 'W',
