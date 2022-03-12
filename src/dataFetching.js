@@ -12,7 +12,7 @@ async function getIcsFeed(
   var now = new Date();
   const nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 1);
   const year = nextMonth.getFullYear();
-  const month = nextMonth.getMonth() + 1;
+  const month = nextMonth.getMonth();
   const params = [
     {
       key: 'ical_1', // Restmülltonne
