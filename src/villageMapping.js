@@ -1131,6 +1131,13 @@ export const villages = [
     geonameId: '2864679',
   },
   {
+    ids: [{ id: 202 }],
+    name: 'Neu Kosenow',
+    region: 'A',
+    slug: 'agneshof',
+    geonameId: '2959290',
+  },
+  {
     ids: [{ id: 830 }],
     name: 'Leussin',
     region: 'L',
@@ -1698,6 +1705,13 @@ export const villages = [
     geonameId: '2804792',
   },
   {
+    ids: [{ id: 534 }],
+    name: 'Zemitz',
+    region: 'W',
+    slug: 'alt-bauer',
+    geonameId: '2958071',
+  },
+  {
     ids: [{ id: 236 }],
     name: 'Schwerinshorst',
     region: 'A',
@@ -1883,6 +1897,13 @@ export const villages = [
     redion: 'U',
     slug: 'torgelow',
     geonameId: '2821802',
+  },
+  {
+    ids: [{ id: 1108 }],
+    name: 'Torgelow',
+    redion: 'U',
+    slug: 'alt-torgelow',
+    geonameId: '2956794',
   },
   {
     ids: [{ id: 70 }],
