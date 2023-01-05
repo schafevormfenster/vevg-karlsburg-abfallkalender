@@ -332,6 +332,7 @@ export const villages = [
     name: 'Schlagtow-Meierei',
     region: 'G',
     slug: 'schlagtow-meierei',
+    geonameId: '2838949',
   },
   {
     ids: [{ id: 237 }],
@@ -1109,12 +1110,14 @@ export const villages = [
     name: 'Johanneshof',
     region: 'A',
     slug: 'johanneshof',
+    geonameId: '2867471',
   },
   {
     ids: [{ id: 1717 }],
     name: 'Gehege (zu Friedberg)',
     region: 'U',
     slug: 'gehege-zu-friedberg)',
+    geonameId: '2924801',
   },
   {
     ids: [{ id: 372 }],
@@ -1862,6 +1865,7 @@ export const villages = [
     name: 'Zimmermannsmühle',
     region: 'U',
     slug: 'zimmermannsmuehle',
+    geonameId: '2826258',
   },
   {
     ids: [{ id: 532 }],
@@ -2085,6 +2089,7 @@ export const villages = [
     name: 'Karlsfelde',
     region: 'U',
     slug: 'karlsfelde',
+    geonameId: '2892869',
   },
   {
     ids: [{ id: 385 }],
@@ -2181,6 +2186,7 @@ export const villages = [
     name: 'Linchenshöh',
     region: 'U',
     slug: 'linchenshoeh',
+    geonameId: '2877621',
   },
   {
     ids: [{ id: 1082 }],
@@ -2255,6 +2261,7 @@ export const villages = [
     name: 'Luisenburg, Strasburg',
     region: 'U',
     slug: 'luisenburg',
+    geonameId: '2875200',
   },
   {
     ids: [{ id: 1010 }],
@@ -2331,12 +2338,14 @@ export const villages = [
     name: 'Wilhelmsburg bei Torgelow',
     region: 'U',
     slug: 'wilhelmsburg-bei-torgelow',
+    geonameId: '2808748',
   },
   {
     ids: [{ id: 1709 }],
     name: 'Wetzenow',
     region: 'U',
     slug: 'wetzenow',
+    geonameId: '2809895',
   },
   {
     ids: [{ id: 218 }],
@@ -2358,6 +2367,7 @@ export const villages = [
     region: 'G',
     slug: 'neuendorf-kemnitz',
     remark: '+ Neuendorf-Ausbau',
+    geonameId: '2865769',
   },
   {
     ids: [{ id: 16 }],
@@ -2484,6 +2494,7 @@ export const villages = [
     name: 'Karlsruh, Fahrenwalde',
     region: 'U',
     slug: 'karlsruh',
+    geonameId: '2892799',
   },
   {
     ids: [{ id: 252 }, { id: 256 }],
@@ -2518,6 +2529,7 @@ export const villages = [
     name: 'Viereck/ETS',
     region: 'U',
     slug: 'viereck-ets',
+    geonameId: '2817375',
   },
   {
     ids: [{ id: 184 }],
@@ -2581,6 +2593,7 @@ export const villages = [
     name: 'Glantzhof',
     region: 'U',
     slug: 'glantzhof',
+    geonameId: '2920194',
   },
   {
     ids: [{ id: 671 }],
@@ -2608,6 +2621,7 @@ export const villages = [
     name: 'Belling',
     region: 'U',
     slug: 'belling',
+    geonameId: '2951200',
   },
   {
     ids: [{ id: 1427 }],
@@ -2697,6 +2711,7 @@ export const villages = [
     name: 'Schwarzensee Siedlung',
     region: 'U',
     slug: 'schwarzensee-siedlung',
+    geonameId: '2834914',
   },
   {
     ids: [{ id: 401 }],
@@ -2744,12 +2759,14 @@ export const villages = [
     name: 'Schuckmannshöhe',
     region: 'U',
     slug: 'schuckmannshoehe',
+    geonameId: '2836020',
   },
   {
     ids: [{ id: 1705 }],
     name: 'Uhlenkrug',
     region: 'U',
     slug: 'uhlenkrug',
+    geonameId: '2820343',
   },
   {
     ids: [{ id: 1620 }],
@@ -2798,6 +2815,7 @@ export const villages = [
     name: 'Neu Polzow',
     region: 'U',
     slug: 'neu-polzow',
+    geonameId: '2852785'
   },
   {
     ids: [{ id: 1005 }],
@@ -2847,6 +2865,7 @@ export const villages = [
     name: 'Heringsdorf',
     region: 'W',
     slug: 'heringsdorf-neuhof',
+    geonameId: '2864900',
   },
   {
     ids: [{ id: 225 }],
@@ -3014,6 +3033,7 @@ export const villages = [
     name: 'Brietzig',
     region: 'U',
     slug: 'brietzig',
+    geonameId: '2944432',
   },
   {
     ids: [{ id: 344 }],
@@ -3167,7 +3187,7 @@ export const villages = [
     name: 'Klitschendorf',
     region: 'A',
     slug: 'klitschendorf',
-    geonameId: '',
+    geonameId: '2887640',
   },
   {
     ids: [{ id: 615 }],
@@ -3282,6 +3302,7 @@ export const villages = [
     name: 'Ottilienau',
     region: 'U',
     slug: 'ottilienau',
+    geonameId: '2855976',
   },
   {
     ids: [{ id: 806 }],
@@ -3364,6 +3385,7 @@ export const villages = [
     name: 'Bellin, Ueckermünde',
     region: 'U',
     slug: 'bellin',
+    geonameId: '2951201',
   },
   {
     ids: [{ id: 675 }],
@@ -3458,6 +3480,7 @@ export const villages = [
     name: 'Sallenthin',
     region: 'W',
     slug: 'sallenthin',
+    geonameId: '2864266',
   },
   {
     ids: [{ id: 808 }, { id: 835 }],
@@ -3669,6 +3692,7 @@ export const villages = [
     name: 'Borken, Viereck',
     region: 'U',
     slug: 'borken',
+    geonameId: '2946226'
   },
   {
     ids: [{ id: 862 }],
@@ -3783,6 +3807,7 @@ export const villages = [
     name: 'Streithof',
     region: 'U',
     slug: 'streithof',
+    geonameId: '2825942',
   },
   {
     ids: [{ id: 1710 }],
@@ -3831,6 +3856,7 @@ export const villages = [
     name: 'Peterswalde',
     region: 'U',
     slug: 'peterswalde',
+    geonameId: '2854610',
   },
   {
     ids: [{ id: 1655 }],
@@ -3851,6 +3877,7 @@ export const villages = [
     name: 'Schönburg',
     region: 'U',
     slug: 'schoenburg',
+    geonameId: '2836836',
   },
   {
     ids: [{ id: 1624 }],
@@ -3995,6 +4022,7 @@ export const villages = [
     name: 'Rothenburg',
     region: 'U',
     slug: 'rothenburg',
+    geonameId: '2844060',
   },
   {
     ids: [{ id: 1054 }],
@@ -4049,7 +4077,7 @@ export const villages = [
     name: 'Schmarsow',
     region: 'U',
     slug: 'schmarsow',
-    geonameId: '',
+    geonameId: '2838000',
   },
   {
     ids: [{ id: 863 }],
@@ -4058,7 +4086,13 @@ export const villages = [
     slug: 'wilhelminenthal',
     geonameId: '2808762',
   },
-  { ids: [{ id: 861 }], name: 'Voßbäk', region: 'L', slug: 'vossbaek' },
+  {
+    ids: [{ id: 861 }],
+    name: 'Voßbäk',
+    region: 'L',
+    slug: 'vossbaek',
+    geonameId: '12253549',
+  },
   {
     ids: [{ id: 1209 }],
     name: 'Torgelow-Spechtberg',
@@ -4076,6 +4110,7 @@ export const villages = [
     name: 'Sandförde',
     region: 'U',
     slug: 'sandfoerde',
+    geonameId: '2841867',
   },
   {
     ids: [{ id: 842 }],
@@ -4139,6 +4174,7 @@ export const villages = [
     name: 'Dargitz',
     region: 'U',
     slug: 'dargitz',
+    geonameId: '2938926',
   },
   {
     ids: [{ id: 854 }, { id: 855 }],
@@ -4234,7 +4270,7 @@ export const villages = [
     name: 'Schmarsow',
     region: 'L',
     slug: 'schmarsow',
-    geonameId: '',
+    geonameId: '2837999',
   },
   {
     ids: [{ id: 652 }],
@@ -4263,13 +4299,14 @@ export const villages = [
     region: 'G',
     slug: 'hinrichshagen',
     remark: '+ Hof, Buchenberg, Siedlungen',
+    geonameId: '2904415',
   },
   {
     ids: [{ id: 301 }],
     name: 'Ahlbeck, Heringsdorf',
     region: 'W',
     slug: 'seebad-ahlbeck',
-    geonameId: '',
+    geonameId: '2833990',
   },
 ];
 
