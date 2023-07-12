@@ -7,7 +7,7 @@
     "ics",
     "ical"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "repository": "github:schafevormfenster/vevg-karlsburg-abfallkalender",
   "homepage": "https://github.com/schafevormfenster/vevg-karlsburg-abfallkalender",
@@ -22,18 +22,21 @@
     }
   ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && next dev",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && next build",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && next start"
+  },
+  "engines": {
+    "node": "18.x"
   },
   "dependencies": {
     "ics": "^2.27.0",
     "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",
-    "next": "10.0.9",
+    "next": "^10.2.3",
     "node-ical": "^0.12.9",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "slugify": "^1.5.3",
     "underscore": "^1.12.1"
   },
