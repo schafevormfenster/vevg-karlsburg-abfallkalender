@@ -1,7 +1,7 @@
 import getVillage from '../../../src/villageMapping';
 import getIcsFeed from '../../../src/dataFetching';
-import ical from 'node-ical';
-const ics = require('ics');
+import ical from 'node-ical'; // TODO: UPDATE TO LATEST VERSION
+const ics = require('ics'); // TODO: UPDATE TO LATEST VERSION
 
 export default async function handler(req, res) {
   const { slug } = req.query;

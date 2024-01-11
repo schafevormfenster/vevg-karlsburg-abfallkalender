@@ -22,30 +22,31 @@
     }
   ],
   "scripts": {
-    "dev": "export NODE_OPTIONS=--openssl-legacy-provider && next dev",
-    "build": "export NODE_OPTIONS=--openssl-legacy-provider && next build",
-    "start": "export NODE_OPTIONS=--openssl-legacy-provider && next start"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
     "ics": "^2.27.0",
     "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",
-    "next": "^10.2.3",
+    "next": "^14.0.4",
     "node-ical": "^0.12.9",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "slugify": "^1.5.3",
     "underscore": "^1.12.1"
   },
   "devDependencies": {
-    "eslint": "^7.22.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "2.2.1",
-    "prettier-airbnb-config": "^1.0.0"
+    "@types/node": "^20.10.8",
+    "@types/react": "^18.2.47",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "typescript": "^5.3.3"
   }
 }

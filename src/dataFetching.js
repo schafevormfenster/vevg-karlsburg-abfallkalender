@@ -1,3 +1,4 @@
+// TODO: use next fetch or axios instead of isomorphic-fetch
 import fetch from 'isomorphic-fetch';
 
 async function getIcsFeed(
