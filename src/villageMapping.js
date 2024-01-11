@@ -1,5 +1,8 @@
 import { findWhere } from 'underscore';
 
+/**
+ * @deprecated
+ */
 export const villages = [
   {
     ids: [{ id: 603 }],
