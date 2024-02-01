@@ -31,12 +31,13 @@
     "node": "20.x"
   },
   "dependencies": {
+    "@schafevormfenster/data-text-mapper": "^0.1.0",
     "cheerio": "^1.0.0-rc.12",
     "ics": "^2.27.0",
     "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",
     "next": "^14.0.4",
-    "node-ical": "^0.12.9",
+    "node-ical": "^0.17.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "slugify": "^1.5.3",

@@ -28,3 +28,53 @@ export interface VevgCommunityOverwrite
   overwriteName?: string;
   locationQualifier?: string;
 }
+
+export interface VevgWasteCategory {
+  name: string;
+  cal: string;
+}
+
+export interface VevgWasteTypeDescription {
+  name: string;
+  tags: string[];
+  swords: string[];
+}
+export interface VevgIcsQuery {
+  village: number;
+  districtIdentifier: string;
+}
+
+export interface VevgRawIcsEvent {
+  type: string;
+  params: [];
+  uid: string;
+  location: string;
+  summary: string;
+  description: string;
+  class: string;
+  start: string;
+  datetype: string;
+  end: string;
+  dtstamp: string;
+}
+
+export interface VevgOrganizer {
+  name: string;
+  email: string;
+}
+export interface VevgProperIcsEvent {
+  uid: string;
+  title: string;
+  description: string;
+  htmlContent?: string;
+  location: string;
+  start: number[];
+  startInputType: "local";
+  end: number[];
+  endInputType: "local";
+  categories: string[];
+  url: string;
+  calName: string;
+  organizer: VevgOrganizer;
+  productId: string;
+}

@@ -1,5 +1,98 @@
-import { VevgCommunityOverwrite, VevgRegion } from "./vevg.types";
+import {
+  VevgCommunityOverwrite,
+  VevgOrganizer,
+  VevgRegion,
+  VevgWasteCategory,
+  VevgWasteTypeDescription,
+} from "./vevg.types";
 
+export const vevgOrganizer: VevgOrganizer = {
+  name: "VEVG Karlsburg",
+  email: "info@vevg-karlsburg.de",
+};
+
+/**
+ * Define waste categories to query the api.
+ */
+export const vevgWasteCategories: VevgWasteCategory[] = [
+  {
+    name: "Restmüll 14-täglich",
+    cal: "ical_1",
+  },
+  {
+    name: "Restmüll wöchentlich",
+    cal: "ical_11",
+  },
+  {
+    name: "Gelber Sack 14-täglich",
+    cal: "ical_2",
+  },
+  {
+    name: "Gelber Sack wöchentlich",
+    cal: "ical_12",
+  },
+  {
+    name: "Papiertonne (EGVG mbH)",
+    cal: "ical_3",
+  },
+  {
+    name: "Papiertonne (Veolia/Alba)",
+    cal: "ical_4",
+  },
+  {
+    name: "Schadstoffsammlung",
+    cal: "ical_5",
+  },
+  {
+    name: "Weihnachtsbäume",
+    cal: "ical_6", // TODO: check if this is correct
+  },
+];
+
+/**
+ * Define waste type descriptions to use in the frontend.
+ */
+export const vevgWasteTypeDescriptions: VevgWasteTypeDescription[] = [
+  {
+    name: "Restmüll",
+    tags: ["Entsorgung", "Restmüll"],
+    swords: ["Restmülltonne"],
+  },
+  {
+    name: "Gelber Sack",
+    tags: ["Entsorgung", "Gelber Sack"],
+    swords: ["gelben", "Säcke"],
+  },
+  {
+    name: "Papiertonne (EGVG mbH)",
+    tags: ["Entsorgung", "Altpapier", "Papiertonne"],
+    swords: ["Papiertonne", "EGVG mbH"],
+  },
+  {
+    name: "Papiertonne (Veolia)",
+    tags: ["Entsorgung", "Altpapier", "Papiertonne"],
+    swords: ["Papiertonne", "Veolia"],
+  },
+  {
+    name: "Papiertonne (Alba)",
+    tags: ["Entsorgung", "Altpapier", "Papiertonne"],
+    swords: ["Papiertonne", "Alba"],
+  },
+  {
+    name: "Mobile Schadstoffsammlung",
+    tags: ["Entsorgung", "Schadstoffe"],
+    swords: ["Schadstoffsammlung"],
+  },
+  {
+    name: "Weihnachtsbäume",
+    tags: ["Entsorgung", "Weihnachtsbäume"],
+    swords: ["Weihnachtsbäume"],
+  },
+];
+
+/**
+ * Extends the VEVG regions given with an identifier by a meaningful name for the region and the districts.
+ */
 export const vevgRegions: VevgRegion[] = [
   {
     identifier: "OVP",
@@ -50,6 +143,9 @@ export const vevgRegions: VevgRegion[] = [
   },
 ];
 
+/**
+ * Defines overwrites for non-uniquely named communities to be better processes by geocoding.
+ */
 export const vevgCommunityOverwrite: VevgCommunityOverwrite[] = [
   {
     name: "Ahlbeck",
