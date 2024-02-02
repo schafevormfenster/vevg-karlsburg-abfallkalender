@@ -73,8 +73,8 @@ export interface VevgProperIcsEvent {
   startInputType: "local";
   end: number[];
   endInputType: "local";
-  categories: string[];
-  url: string;
+  categories?: string[];
+  url?: string;
   calName: string;
   organizer?: VevgOrganizer;
   productId: string;

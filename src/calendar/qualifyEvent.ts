@@ -68,8 +68,8 @@ export const qualifyEvent = (
       tmpEndDate.getMinutes(),
     ],
     endInputType: "local",
-    categories: getProperTags(rawIcsEvent.summary) || ["Entsorgung"],
-    url: detailLink.toString(),
+    // categories: getProperTags(rawIcsEvent.summary) || ["Entsorgung"],
+    // url: detailLink.toString(),
     // organizer: vevgOrganizer,
     calName:
       "Abfallkalender der VEVG mbH (Ver- und Entsorgungsgesellschaft des Landkreises Vorpommern-Greifswald mbH)",
