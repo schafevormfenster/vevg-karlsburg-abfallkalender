@@ -34,12 +34,14 @@ export async function GET(request: Request) {
   const icsBody = ics.createEvents(allEvents);
 
   // send a response with ics as body, NO json
+  const cacheTTL: number = 24 * 60 * 60; // 24 hours
+  const staleTime: number = 60 * 60; // 1 hour
   const response = new Response(icsBody.value, {
     status: 200,
     statusText: "OK",
     headers: {
       "content-type": "text/calendar; charset=UTF-8",
-      "cache-control": "s-maxage=86400, stale-while-revalidate=3600",
+      "cache-control": `s-maxage=${cacheTTL}, stale-while-revalidate=${staleTime}`,
     },
   });
 

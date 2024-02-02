@@ -19,14 +19,12 @@ The delivered data has some weaknesses regarding the data structure and quality:
 
 This API proxy tries to fix all named issues by some data processing:
 
-- The proxy provides an optimises ics feed at `/api/ics/[village slug]` and a json version at
-  `/api/json/[village slug]`.
-- At `/api/` an index of villages with proper names and aggregation of multiple calendars is
+- The proxy provides an optimises ics feed.
+- At `/api/communities` an index of villages with proper names and locations is
   provided in json format.
-- The index includes pathes to the regarding json endpoint and ics feed.
+- The index at `/api/` includes pathes to the ics feeds.
 - The event data is processed and optimized in several ways e.g. shortening the summary,
-  reformatting the location, optimise the description, add categories and a scope, include a html
-  link, ...
+  reformatting the location, optimise the description, add categories and a scope, ...
 
 ## Getting Started
 
@@ -40,9 +38,8 @@ yarn dev
 
 Open the api proxy locally:
 
-- Show the village index at http://localhost:3000/api/
-- Show any event list as json of any village e.g. http://localhost:3000/api/json/schlatkow
-- Get an ics file of any village e.g. http://localhost:3000/api/json/schlatkow
+- Show the village index at http://localhost:3000/api/communities
+- Show an event list as ics e.g. http://localhost:3000/api/schedule/altpapier
 
 ## Status
 
@@ -50,7 +47,7 @@ This API proxy is dedicated to be used for waste calendars of VEVG Karlsburg onl
 expect a generic solution.
 
 The code is functional and tested, but not engineered like a professional commercial project. You
-will find some parts of duplicate code, a non-bullet-proof error handling, no typescript use and maybe other
+will find some parts of duplicate code, a non-bullet-proof error handling and maybe other
 thing you would love to see here.
 
 ---

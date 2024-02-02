@@ -44,7 +44,7 @@ export async function GET(
   );
 
   // filter by time span
-  const days: number = 30;
+  const days: number = 45;
   const eventsFilteredByTimespan = filterEventsByTimespan(
     eventsFilteredByWasteType,
     days
@@ -54,12 +54,14 @@ export async function GET(
   const icsBody = ics.createEvents(eventsFilteredByTimespan);
 
   // send a response with ics as body, NO json
+  const cacheTTL: number = 24 * 60 * 60; // 24 hours
+  const staleTime: number = 60 * 60; // 1 hour
   const response = new Response(icsBody.value, {
     status: 200,
     statusText: "OK",
     headers: {
       "content-type": "text/calendar; charset=UTF-8",
-      "cache-control": "s-maxage=86400, stale-while-revalidate=3600",
+      "cache-control": `s-maxage=${cacheTTL}, stale-while-revalidate=${staleTime}`,
     },
   });
 

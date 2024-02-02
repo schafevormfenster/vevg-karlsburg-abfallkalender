@@ -14,6 +14,7 @@ httpHeaders.append("Connection", "keep-alive");
 
 export const fetchHtml = async (url: string): Promise<string | null> => {
   const html: Response = await fetch(url, {
+    method: "GET",
     next: { revalidate: 30 * 24 * 60 * 60 }, // 30 days
     headers: httpHeaders,
   });
@@ -23,8 +24,9 @@ export const fetchHtml = async (url: string): Promise<string | null> => {
   } else {
     // sleep and retry
     console.info("Retry fetching HTML from " + url);
-    await new Promise((f) => setTimeout(f, 1000)); // let the vevg website breath
+    await new Promise((f) => setTimeout(f, 1500)); // let the vevg website breath
     const html: Response = await fetch(url, {
+      method: "GET",
       next: { revalidate: 30 * 24 * 60 * 60 }, // 30 days
       headers: httpHeaders,
     });

@@ -14,8 +14,8 @@ import { getCommunityById } from "../communities/utils/getCommunityById";
  * @returns random number between 7 and 8 days
  */
 function randomCacheTTL(): number {
-  const min: number = 7 * 24 * 60 * 60;
-  const max: number = 8 * 24 * 60 * 60;
+  const min: number = 2 * 24 * 60 * 60;
+  const max: number = 3 * 24 * 60 * 60;
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -87,7 +87,7 @@ export const fetchIcsFeed = async (
     if (ics.status !== 200 || ics.body === null) {
       console.info("Error fetching ics feed for url " + url + ", retrying...");
       // wait and retry one time
-      await new Promise((f) => setTimeout(f, 1000)); // let the vevg website breath
+      await new Promise((f) => setTimeout(f, 1500)); // let the vevg website breath
       const ics: Response = await fetch(url, {
         next: { revalidate: randomCacheTTL() },
       });
