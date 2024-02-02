@@ -29,6 +29,14 @@ export interface VevgCommunityOverwrite
   locationQualifier?: string;
 }
 
+export type VevgWasteType =
+  | "restmuell"
+  | "altpapier"
+  | "gelbersack"
+  | "schadstoffe"
+  | "weihnachtsbaeume"
+  | "other";
+
 export interface VevgWasteCategory {
   name: string;
   cal: string;
@@ -36,6 +44,7 @@ export interface VevgWasteCategory {
 
 export interface VevgWasteTypeDescription {
   name: string;
+  type: VevgWasteType;
   tags: string[];
   swords: string[];
   scope: string;

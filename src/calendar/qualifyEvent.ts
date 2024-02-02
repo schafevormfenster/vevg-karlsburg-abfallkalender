@@ -68,7 +68,7 @@ export const qualifyEvent = (
       tmpEndDate.getMinutes(),
     ],
     endInputType: "local",
-    // categories: getProperTags(rawIcsEvent.summary) || ["Entsorgung"],
+    categories: getProperTags(rawIcsEvent.summary) || ["Entsorgung"],
     // url: detailLink.toString(),
     // organizer: vevgOrganizer,
     calName:

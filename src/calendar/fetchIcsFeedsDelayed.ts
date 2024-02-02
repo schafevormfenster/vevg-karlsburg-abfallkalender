@@ -3,11 +3,8 @@ import { fetchIcsFeed } from "./fetchIcsFeed";
 
 export const fetchIcsFeedsDelayed = async (
   queries: VevgIcsQuery[],
-  chunkSize: number = 12
+  chunkSize: number = 10
 ): Promise<VevgProperIcsEvent[] | null> => {
-  // reduce queries to max. some items
-  // queries = queries.slice(0, 12); // this is only meaningful for testing or debugging
-
   // split up queries in chunks by chunkSize
   const queryChunks: VevgIcsQuery[][] = [];
   for (let i = 0; i < queries.length; i += chunkSize) {
@@ -31,25 +28,8 @@ export const fetchIcsFeedsDelayed = async (
     await new Promise((f) => setTimeout(f, 1200)); // let the vevg website breath
   }
 
-  // filter from "allEventsFromIcsData" all events that are more than two month in the future
-  // start[0] is year, start[1] is month, start[2] is day
-  const today = new Date();
-  const twoMonthsFromNow = new Date(
-    today.getFullYear(),
-    today.getMonth() + 2,
-    today.getDate()
-  );
-  const allEventsFromIcsDataFiltered = allEventsFromIcsData.filter((event) => {
-    const eventDate = new Date(
-      event.start[0],
-      event.start[1] - 1,
-      event.start[2]
-    );
-    return eventDate < twoMonthsFromNow;
-  });
-
   // sort "allEventsFromIcsData" by start[0], start[1], start[2]
-  allEventsFromIcsDataFiltered.sort((a, b) => {
+  allEventsFromIcsData.sort((a, b) => {
     const aStart = a.start;
     const bStart = b.start;
     if (aStart[0] < bStart[0]) {
@@ -73,5 +53,5 @@ export const fetchIcsFeedsDelayed = async (
     return 0;
   });
 
-  return allEventsFromIcsDataFiltered;
+  return allEventsFromIcsData;
 };
