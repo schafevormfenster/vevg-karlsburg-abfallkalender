@@ -63,8 +63,8 @@ export async function GET(
     status: 200,
     statusText: "OK",
     headers: {
-      "content-type": "text/calendar; charset=UTF-8",
-      "cache-control": `s-maxage=${cacheTTL}, stale-while-revalidate=${staleTime}`,
+      "Content-Type": "application/calendar; charset=utf8",
+      "Cache-Control": `s-maxage=${cacheTTL}, stale-while-revalidate=${staleTime}`,
     },
   });
 

@@ -2,7 +2,7 @@ import {
   TextWithData,
   dataToText,
 } from "@schafevormfenster/data-text-mapper/dist";
-import { vevgRegions } from "../vevg.config";
+import { vevgOrganizer, vevgRegions } from "../vevg.config";
 import {
   VevgCommunity,
   VevgProperIcsEvent,
@@ -70,12 +70,13 @@ export const qualifyEvent = (
     ],
     endInputType: "local",
     categories: matchingWasteTypeDescription.tags || ["Entsorgung"],
-    // url: detailLink.toString(),
-    // organizer: vevgOrganizer,
+    url: detailLink.toString(),
+    organizer: vevgOrganizer,
     calName:
       "Abfallkalender der VEVG mbH (Ver- und Entsorgungsgesellschaft des Landkreises Vorpommern-Greifswald mbH)",
     productId:
       "Abfallkalender der VEVG mbH (Ver- und Entsorgungsgesellschaft des Landkreises Vorpommern-Greifswald mbH)",
+    method: "PUBLISH",
     // updated: rawIcsEvent.dtstamp, // TODO: use lastUpdated
     // htmlContent: dataToHtml(descriptionData), // skip to reduce response size
   };

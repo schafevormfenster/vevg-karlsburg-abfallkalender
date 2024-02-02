@@ -87,4 +87,5 @@ export interface VevgProperIcsEvent {
   calName: string;
   organizer?: VevgOrganizer;
   productId: string;
+  method: string;
 }
