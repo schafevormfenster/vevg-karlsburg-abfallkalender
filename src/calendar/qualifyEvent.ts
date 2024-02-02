@@ -10,6 +10,7 @@ import {
 } from "../vevg.types";
 import { getProperSummary } from "./utils/getProperSummary";
 import { getProperTags } from "./utils/getProperTags";
+import { getProperScope } from "./utils/getProperScope";
 
 export const qualifyEvent = (
   rawIcsEvent: VevgRawIcsEvent,
@@ -40,7 +41,7 @@ export const qualifyEvent = (
   const descriptionData: TextWithData = {
     description: rawIcsEvent.summary,
     categories: ["Entsorgung"],
-    scopes: ["Ort"],
+    scopes: [getProperScope(rawIcsEvent.summary) || "Ort"],
     tags: getProperTags(rawIcsEvent.summary) || ["Entsorgung"],
     url: detailLink.toString(),
   };

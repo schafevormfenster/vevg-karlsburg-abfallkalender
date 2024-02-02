@@ -38,6 +38,7 @@ export interface VevgWasteTypeDescription {
   name: string;
   tags: string[];
   swords: string[];
+  scope: string;
 }
 export interface VevgIcsQuery {
   village: number;

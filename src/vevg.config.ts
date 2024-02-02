@@ -57,41 +57,49 @@ export const vevgWasteTypeDescriptions: VevgWasteTypeDescription[] = [
     name: "Restmüll",
     tags: ["Entsorgung", "Restmüll"],
     swords: ["Restmülltonne"],
+    scope: "Ort",
   },
   {
     name: "Gelber Sack",
     tags: ["Entsorgung", "Gelber Sack"],
     swords: ["gelben", "Säcke"],
+    scope: "Ort",
   },
   {
     name: "Papiertonne (EGVG mbH)",
     tags: ["Entsorgung", "Altpapier", "Papiertonne"],
     swords: ["Papiertonne", "EGVG mbH"],
+    scope: "Ort",
   },
   {
     name: "Papiertonne (Veolia)",
     tags: ["Entsorgung", "Altpapier", "Papiertonne"],
     swords: ["Papiertonne", "Veolia"],
+    scope: "Ort",
   },
   {
     name: "Papiertonne (Alba)",
     tags: ["Entsorgung", "Altpapier", "Papiertonne"],
     swords: ["Papiertonne", "Alba"],
+    scope: "Ort",
   },
   {
     name: "Papiertonne (Smiton)",
     tags: ["Entsorgung", "Altpapier", "Papiertonne"],
     swords: ["Papiertonne", "Smiton"],
+    scope: "Ort",
   },
   {
     name: "Mobile Schadstoffsammlung",
     tags: ["Entsorgung", "Schadstoffe"],
     swords: ["Schadstoffsammlung"],
+    scope: "Umgebung",
   },
   {
     name: "Weihnachtsbäume",
     tags: ["Entsorgung", "Weihnachtsbäume"],
     swords: ["Weihnachtsbäume"],
+    scope: "Ort",
   },
 ];
 
