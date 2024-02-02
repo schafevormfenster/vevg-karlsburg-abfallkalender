@@ -1,6 +1,8 @@
 import { getCommunityById } from "../../../../src/communities/utils/getCommunityById";
 import { VevgCommunity } from "../../../../src/vevg.types";
 
+export const maxDuration = 30;
+
 export async function GET(
   request: Request,
   { params }: { params: { id: string } }

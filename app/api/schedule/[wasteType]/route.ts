@@ -10,6 +10,8 @@ import { filterEventsByWasteType } from "../../../../src/calendar/utils/filterEv
 import { filterEventsByTimespan } from "../../../../src/calendar/utils/filterEventsByTimespan";
 const ics = require("ics");
 
+export const maxDuration = 60 * 7; // 7 minutes
+
 export async function GET(
   request: Request,
   { params }: { params: { wasteType: string } }

@@ -7,6 +7,8 @@ import { getCommunityList } from "../../../src/communities/getCommunityList";
 import { fetchIcsFeedsDelayed } from "../../../src/calendar/fetchIcsFeedsDelayed";
 const ics = require("ics");
 
+export const maxDuration = 60 * 10; // 10 minutes
+
 export async function GET(request: Request) {
   // get all communities
   const vevgCommunityList: VevgCommunity[] = await getCommunityList();
