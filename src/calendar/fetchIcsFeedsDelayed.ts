@@ -1,5 +1,5 @@
 import { VevgIcsQuery, VevgProperIcsEvent } from "../vevg.types";
-import { fetchIcsFeed } from "./fetchIcsFeed";
+import { fetchIcsFeedCached } from "./fetchIcsFeed";
 
 export const fetchIcsFeedsDelayed = async (
   queries: VevgIcsQuery[],
@@ -19,7 +19,7 @@ export const fetchIcsFeedsDelayed = async (
     const chunkData: number[] = await Promise.all(
       queryChunk.map(async (query: VevgIcsQuery) => {
         const eventsFromIcsData: VevgProperIcsEvent[] =
-          (await fetchIcsFeed(query)) || [];
+          (await fetchIcsFeedCached(query)) || [];
         // push all events to allEventsFromIcsData
         allEventsFromIcsData.push(...eventsFromIcsData);
         return eventsFromIcsData.length;

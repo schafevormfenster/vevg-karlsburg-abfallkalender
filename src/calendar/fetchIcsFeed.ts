@@ -8,16 +8,10 @@ import {
 import ical from "node-ical";
 import { qualifyEvent } from "./qualifyEvent";
 import { getCommunityById } from "../communities/utils/getCommunityById";
-
-/**
- *
- * @returns random number between 7 and 8 days
- */
-function randomCacheTTL(): number {
-  const min: number = 2 * 24 * 60 * 60;
-  const max: number = 3 * 24 * 60 * 60;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import { unstable_cache } from "next/cache";
+import { cache } from "react";
+import slugify from "slugify";
+import { localCache } from "../cache/cachemanager";
 
 export const fetchIcsFeed = async (
   query: VevgIcsQuery
@@ -81,7 +75,7 @@ export const fetchIcsFeed = async (
     let icsRawData: string | undefined | null = undefined;
 
     const ics: Response = await fetch(url, {
-      next: { revalidate: randomCacheTTL() },
+      cache: "force-cache",
     });
 
     if (ics.status !== 200 || ics.body === null) {
@@ -89,7 +83,7 @@ export const fetchIcsFeed = async (
       // wait and retry one time
       await new Promise((f) => setTimeout(f, 1500)); // let the vevg website breath
       const ics: Response = await fetch(url, {
-        next: { revalidate: randomCacheTTL() },
+        cache: "force-cache",
       });
 
       if (ics.status !== 200 || ics.body === null) {
@@ -137,5 +131,34 @@ export const fetchIcsFeed = async (
     return Promise.resolve(properEvents);
   } catch (error: any) {
     return Promise.reject(error.message);
+  }
+};
+
+/**
+ * Use a cache.
+ */
+export const fetchIcsFeedCached = async (
+  query: VevgIcsQuery
+): Promise<VevgProperIcsEvent[] | null> => {
+  try {
+    const cacheKey =
+      "fetch-ics-feed-" +
+      slugify(`${query.village.toString()}-${query.districtIdentifier}`, {
+        lower: true,
+        strict: true,
+      });
+    console.debug(`[Cache] Check local cache for ${cacheKey}.`);
+    return localCache.wrap(cacheKey, function () {
+      try {
+        console.info(`[Cache] Fetch original data for ${cacheKey}.`);
+        return fetchIcsFeed(query);
+      } catch (error) {
+        console.error((error as Error).message);
+        throw error;
+      }
+    });
+  } catch (error) {
+    console.error((error as Error).message);
+    return null;
   }
 };

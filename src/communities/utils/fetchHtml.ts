@@ -2,6 +2,9 @@
  * Default http request headrers.
  */
 
+import slugify from "slugify";
+import { localCache } from "../../cache/cachemanager";
+
 const httpHeaders = new Headers();
 httpHeaders.append("Accept", "text/calendar");
 httpHeaders.append("Accept-Language", "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7");
@@ -15,7 +18,7 @@ httpHeaders.append("Connection", "keep-alive");
 export const fetchHtml = async (url: string): Promise<string | null> => {
   const html: Response = await fetch(url, {
     method: "GET",
-    next: { revalidate: 30 * 24 * 60 * 60 }, // 30 days
+    cache: "force-cache",
     headers: httpHeaders,
   });
 
@@ -27,7 +30,7 @@ export const fetchHtml = async (url: string): Promise<string | null> => {
     await new Promise((f) => setTimeout(f, 1500)); // let the vevg website breath
     const html: Response = await fetch(url, {
       method: "GET",
-      next: { revalidate: 30 * 24 * 60 * 60 }, // 30 days
+      cache: "force-cache",
       headers: httpHeaders,
     });
     if (html.ok) {
@@ -38,4 +41,27 @@ export const fetchHtml = async (url: string): Promise<string | null> => {
   console.error("Error fetching HTML from " + url);
 
   return null;
+};
+
+/**
+ * Use a cache.
+ */
+export const fetchHtmlCached = async (url: string): Promise<string | null> => {
+  try {
+    const cacheKey =
+      "fetch-html-" + slugify(url, { lower: true, strict: true });
+    console.debug(`[Cache] Check local cache for ${cacheKey}.`);
+    return localCache.wrap(cacheKey, function () {
+      try {
+        console.info(`[Cache] Fetch original data for ${cacheKey}.`);
+        return fetchHtml(url);
+      } catch (error) {
+        console.error((error as Error).message);
+        throw error;
+      }
+    });
+  } catch (error) {
+    console.error((error as Error).message);
+    return null;
+  }
 };

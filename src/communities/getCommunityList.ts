@@ -1,8 +1,8 @@
-import { fetchHtml } from "./utils/fetchHtml";
 import { getCommunityListFromHtml } from "./utils/getCommunityListFromHtml";
 import { optimizeCommunityList } from "./utils/optimizeCommunityList";
 import { vevgRegions } from "../vevg.config";
 import { VevgCommunity, VevgRegion } from "../vevg.types";
+import { fetchHtmlCached } from "./utils/fetchHtml";
 
 export const getCommunityList = async (): Promise<VevgCommunity[]> => {
   let vevgCommunityList: VevgCommunity[] = [];
@@ -10,7 +10,7 @@ export const getCommunityList = async (): Promise<VevgCommunity[]> => {
   // get html using fetchHtml for all urls in VevgRegionalCalendarUrl with Promises
   const communities: any[] = await Promise.all(
     vevgRegions.map(async (vevgRegion: VevgRegion) => {
-      const regionalCalendarHtml: string | null = await fetchHtml(
+      const regionalCalendarHtml: string | null = await fetchHtmlCached(
         vevgRegion.url
       );
       if (!regionalCalendarHtml)
