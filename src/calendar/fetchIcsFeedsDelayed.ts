@@ -3,7 +3,7 @@ import { fetchIcsFeedCached } from "./fetchIcsFeed";
 
 export const fetchIcsFeedsDelayed = async (
   queries: VevgIcsQuery[],
-  chunkSize: number = 10
+  chunkSize: number = 50
 ): Promise<VevgProperIcsEvent[] | null> => {
   // split up queries in chunks by chunkSize
   const queryChunks: VevgIcsQuery[][] = [];
@@ -25,7 +25,7 @@ export const fetchIcsFeedsDelayed = async (
         return eventsFromIcsData.length;
       })
     );
-    await new Promise((f) => setTimeout(f, 1200)); // let the vevg website breath
+    await new Promise((f) => setTimeout(f, 100)); // let the vevg website breath
   }
 
   // sort "allEventsFromIcsData" by start[0], start[1], start[2]

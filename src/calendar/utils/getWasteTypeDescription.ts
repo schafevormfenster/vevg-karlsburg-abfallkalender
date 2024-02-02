@@ -1,10 +1,13 @@
 import { vevgWasteTypeDescriptions } from "../../vevg.config";
+import { VevgWasteTypeDescription } from "../../vevg.types";
 
 /**
- * Creates a harmonized title based on a mapping table.
+ * Get tags for the best matching title based on a mapping table.
  * @param title
  */
-export const getProperSummary = (title: string): string | null => {
+export const getWasteTypeDescription = (
+  title: string
+): VevgWasteTypeDescription | null => {
   // get name from vevgWasteTypeDescriptions if all items in swords are included in title
   const properWasteTypeDescription = vevgWasteTypeDescriptions.find(
     (wasteTypeDescription) => {
@@ -14,5 +17,5 @@ export const getProperSummary = (title: string): string | null => {
       });
     }
   );
-  return properWasteTypeDescription?.name || title;
+  return properWasteTypeDescription || null;
 };

@@ -33,6 +33,8 @@
   "dependencies": {
     "@schafevormfenster/data-text-mapper": "^0.1.0",
     "cache-manager": "^4.1.0",
+    "cache-manager-mongoose": "^1.0.1",
+    "mongoose": "^6.5.4",
     "cheerio": "^1.0.0-rc.12",
     "ics": "^2.27.0",
     "isomorphic-fetch": "^3.0.0",

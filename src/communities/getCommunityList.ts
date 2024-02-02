@@ -3,8 +3,11 @@ import { optimizeCommunityList } from "./utils/optimizeCommunityList";
 import { vevgRegions } from "../vevg.config";
 import { VevgCommunity, VevgRegion } from "../vevg.types";
 import { fetchHtmlCached } from "./utils/fetchHtml";
+import { localCache } from "../cache/cachemanager";
 
-export const getCommunityList = async (): Promise<VevgCommunity[]> => {
+export const getCommunityListFromSource = async (): Promise<
+  VevgCommunity[]
+> => {
   let vevgCommunityList: VevgCommunity[] = [];
 
   // get html using fetchHtml for all urls in VevgRegionalCalendarUrl with Promises
@@ -29,4 +32,15 @@ export const getCommunityList = async (): Promise<VevgCommunity[]> => {
   vevgCommunityList = optimizeCommunityList(vevgCommunityList);
 
   return vevgCommunityList;
+};
+
+/**
+ * Use a cache.
+ * @returns
+ */
+export const getCommunityList = async (): Promise<VevgCommunity[]> => {
+  const cacheKey = "get-community-list";
+  return localCache.wrap(cacheKey, function () {
+    return getCommunityListFromSource();
+  });
 };

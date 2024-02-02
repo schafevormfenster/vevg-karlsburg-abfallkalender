@@ -1,17 +1,15 @@
 import {
   TextWithData,
-  dataToHtml,
   dataToText,
 } from "@schafevormfenster/data-text-mapper/dist";
-import { vevgOrganizer, vevgRegions } from "../vevg.config";
+import { vevgRegions } from "../vevg.config";
 import {
   VevgCommunity,
   VevgProperIcsEvent,
   VevgRawIcsEvent,
+  VevgWasteTypeDescription,
 } from "../vevg.types";
-import { getProperSummary } from "./utils/getProperSummary";
-import { getProperTags } from "./utils/getProperTags";
-import { getProperScope } from "./utils/getProperScope";
+import { getWasteTypeDescription } from "./utils/getWasteTypeDescription";
 
 export const qualifyEvent = (
   rawIcsEvent: VevgRawIcsEvent,
@@ -39,17 +37,20 @@ export const qualifyEvent = (
   // build URL params by URI object
   const urlParams: URLSearchParams = new URLSearchParams({});
 
+  const matchingWasteTypeDescription: VevgWasteTypeDescription =
+    getWasteTypeDescription(rawIcsEvent.summary) as VevgWasteTypeDescription;
+
   const descriptionData: TextWithData = {
     description: rawIcsEvent.summary,
     categories: ["Entsorgung"],
-    scopes: [getProperScope(rawIcsEvent.summary) || "Ort"],
-    tags: getProperTags(rawIcsEvent.summary) || ["Entsorgung"],
+    scopes: [matchingWasteTypeDescription.scope || "Ort"],
+    tags: matchingWasteTypeDescription.tags || ["Entsorgung"],
     url: detailLink.toString(),
   };
 
   const properEvent: VevgProperIcsEvent = {
     uid: rawIcsEvent.uid,
-    title: getProperSummary(rawIcsEvent.summary) || rawIcsEvent.summary,
+    title: matchingWasteTypeDescription.name || rawIcsEvent.summary,
     description: dataToText(descriptionData),
     location: community.location || community.name,
     start: [
@@ -68,7 +69,7 @@ export const qualifyEvent = (
       tmpEndDate.getMinutes(),
     ],
     endInputType: "local",
-    categories: getProperTags(rawIcsEvent.summary) || ["Entsorgung"],
+    categories: matchingWasteTypeDescription.tags || ["Entsorgung"],
     // url: detailLink.toString(),
     // organizer: vevgOrganizer,
     calName:

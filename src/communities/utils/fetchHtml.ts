@@ -3,7 +3,7 @@
  */
 
 import slugify from "slugify";
-import { localCache } from "../../cache/cachemanager";
+import { remoteDatabaseCache } from "../../cache/cachemanager";
 
 const httpHeaders = new Headers();
 httpHeaders.append("Accept", "text/calendar");
@@ -47,21 +47,13 @@ export const fetchHtml = async (url: string): Promise<string | null> => {
  * Use a cache.
  */
 export const fetchHtmlCached = async (url: string): Promise<string | null> => {
-  try {
-    const cacheKey =
-      "fetch-html-" + slugify(url, { lower: true, strict: true });
-    console.debug(`[Cache] Check local cache for ${cacheKey}.`);
-    return localCache.wrap(cacheKey, function () {
-      try {
-        console.info(`[Cache] Fetch original data for ${cacheKey}.`);
-        return fetchHtml(url);
-      } catch (error) {
-        console.error((error as Error).message);
-        throw error;
-      }
-    });
-  } catch (error) {
-    console.error((error as Error).message);
-    return null;
-  }
+  const cacheKeys: string[] = ["vevg", "fetch-html", url];
+  const cacheKey: string = slugify(cacheKeys.join("-"), {
+    lower: true,
+    strict: true,
+  });
+  return remoteDatabaseCache.wrap(cacheKey, function () {
+    console.debug(`[Cache] Fetch original data for ${cacheKey}.`);
+    return fetchHtml(url);
+  });
 };

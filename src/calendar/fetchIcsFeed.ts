@@ -11,7 +11,7 @@ import { getCommunityById } from "../communities/utils/getCommunityById";
 import { unstable_cache } from "next/cache";
 import { cache } from "react";
 import slugify from "slugify";
-import { localCache } from "../cache/cachemanager";
+import { localCache, remoteDatabaseCache } from "../cache/cachemanager";
 
 export const fetchIcsFeed = async (
   query: VevgIcsQuery
@@ -128,6 +128,9 @@ export const fetchIcsFeed = async (
       }
     }
 
+    // slow down orginal fetch to let the vevg website breath
+    await new Promise((f) => setTimeout(f, 1500));
+
     return Promise.resolve(properEvents);
   } catch (error: any) {
     return Promise.reject(error.message);
@@ -135,30 +138,20 @@ export const fetchIcsFeed = async (
 };
 
 /**
- * Use a cache.
+ * Use a remote cache.
  */
 export const fetchIcsFeedCached = async (
   query: VevgIcsQuery
 ): Promise<VevgProperIcsEvent[] | null> => {
-  try {
-    const cacheKey =
-      "fetch-ics-feed-" +
-      slugify(`${query.village.toString()}-${query.districtIdentifier}`, {
-        lower: true,
-        strict: true,
-      });
-    console.debug(`[Cache] Check local cache for ${cacheKey}.`);
-    return localCache.wrap(cacheKey, function () {
-      try {
-        console.info(`[Cache] Fetch original data for ${cacheKey}.`);
-        return fetchIcsFeed(query);
-      } catch (error) {
-        console.error((error as Error).message);
-        throw error;
-      }
-    });
-  } catch (error) {
-    console.error((error as Error).message);
-    return null;
-  }
+  const cacheKeys: string[] = [
+    "vevg",
+    "fetch-ics-feed",
+    query.village.toString(),
+    query.districtIdentifier,
+  ];
+  const cacheKey: string = slugify(cacheKeys.join("-"));
+  return remoteDatabaseCache.wrap(cacheKey, function () {
+    console.debug(`[Cache] Fetch original data for ${cacheKey}.`);
+    return fetchIcsFeed(query);
+  });
 };

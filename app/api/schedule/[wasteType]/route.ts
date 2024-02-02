@@ -12,8 +12,11 @@ const ics = require("ics");
 
 export const maxDuration: number = 300; // 5 minutes
 
-export async function GET() {
-  const wasteType: VevgWasteType = "gelbersack";
+export async function GET(
+  request: Request,
+  { params }: { params: { wasteType: string } }
+) {
+  const wasteType: VevgWasteType = params.wasteType as VevgWasteType;
 
   // get all communities
   const vevgCommunityList: VevgCommunity[] = await getCommunityList();
