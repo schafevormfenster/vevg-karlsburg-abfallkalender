@@ -76,6 +76,6 @@ export interface VevgProperIcsEvent {
   categories: string[];
   url: string;
   calName: string;
-  organizer: VevgOrganizer;
+  organizer?: VevgOrganizer;
   productId: string;
 }

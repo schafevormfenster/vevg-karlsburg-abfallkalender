@@ -1,6 +1,7 @@
 import {
   TextWithData,
   dataToHtml,
+  dataToText,
 } from "@schafevormfenster/data-text-mapper/dist";
 import { vevgOrganizer, vevgRegions } from "../vevg.config";
 import {
@@ -49,7 +50,7 @@ export const qualifyEvent = (
   const properEvent: VevgProperIcsEvent = {
     uid: rawIcsEvent.uid,
     title: getProperSummary(rawIcsEvent.summary) || rawIcsEvent.summary,
-    description: dataToHtml(descriptionData),
+    description: dataToText(descriptionData),
     location: community.location || community.name,
     start: [
       tmpStartDate.getFullYear(),
@@ -69,9 +70,11 @@ export const qualifyEvent = (
     endInputType: "local",
     categories: getProperTags(rawIcsEvent.summary) || ["Entsorgung"],
     url: detailLink.toString(),
-    organizer: vevgOrganizer,
-    calName: "Abfallkalender der VEVG Karlsburg",
-    productId: "Abfallkalender der VEVG Karlsburg",
+    // organizer: vevgOrganizer,
+    calName:
+      "Abfallkalender der VEVG mbH (Ver- und Entsorgungsgesellschaft des Landkreises Vorpommern-Greifswald mbH)",
+    productId:
+      "Abfallkalender der VEVG mbH (Ver- und Entsorgungsgesellschaft des Landkreises Vorpommern-Greifswald mbH)",
     // updated: rawIcsEvent.dtstamp, // TODO: use lastUpdated
     // htmlContent: dataToHtml(descriptionData), // skip to reduce response size
   };
