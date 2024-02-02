@@ -10,12 +10,11 @@ import { filterEventsByWasteType } from "../../../../src/calendar/utils/filterEv
 import { filterEventsByTimespan } from "../../../../src/calendar/utils/filterEventsByTimespan";
 const ics = require("ics");
 
-export const maxDuration = 60 * 7; // 7 minutes
+export const maxDuration: number = 420; // 7 minutes
 
-export async function GET(
-  request: Request,
-  { params }: { params: { wasteType: string } }
-) {
+export async function GET() {
+  const wasteType: VevgWasteType = "restmuell";
+
   // get all communities
   const vevgCommunityList: VevgCommunity[] = await getCommunityList();
 
@@ -39,7 +38,6 @@ export async function GET(
   }
 
   // filter by wasteType
-  const wasteType: VevgWasteType = params.wasteType as VevgWasteType;
   const eventsFilteredByWasteType = filterEventsByWasteType(
     allEvents,
     wasteType

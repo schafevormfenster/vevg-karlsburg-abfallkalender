@@ -2,14 +2,19 @@ import {
   VevgCommunity,
   VevgIcsQuery,
   VevgProperIcsEvent,
-} from "../../../src/vevg.types";
-import { getCommunityList } from "../../../src/communities/getCommunityList";
-import { fetchIcsFeedsDelayed } from "../../../src/calendar/fetchIcsFeedsDelayed";
+  VevgWasteType,
+} from "../../../../src/vevg.types";
+import { getCommunityList } from "../../../../src/communities/getCommunityList";
+import { fetchIcsFeedsDelayed } from "../../../../src/calendar/fetchIcsFeedsDelayed";
+import { filterEventsByWasteType } from "../../../../src/calendar/utils/filterEventsByWasteType";
+import { filterEventsByTimespan } from "../../../../src/calendar/utils/filterEventsByTimespan";
 const ics = require("ics");
 
-export const maxDuration: number = 420; // 10 minutes
+export const maxDuration: number = 420; // 7 minutes
 
 export async function GET() {
+  const wasteType: VevgWasteType = "gelbersack";
+
   // get all communities
   const vevgCommunityList: VevgCommunity[] = await getCommunityList();
 
@@ -32,8 +37,21 @@ export async function GET() {
     return Response.error();
   }
 
+  // filter by wasteType
+  const eventsFilteredByWasteType = filterEventsByWasteType(
+    allEvents,
+    wasteType
+  );
+
+  // filter by time span
+  const days: number = 45;
+  const eventsFilteredByTimespan = filterEventsByTimespan(
+    eventsFilteredByWasteType,
+    days
+  );
+
   // generate ics
-  const icsBody = ics.createEvents(allEvents);
+  const icsBody = ics.createEvents(eventsFilteredByTimespan);
 
   // send a response with ics as body, NO json
   const cacheTTL: number = 24 * 60 * 60; // 24 hours

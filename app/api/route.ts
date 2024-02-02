@@ -1,4 +1,4 @@
-export async function GET(request: Request) {
+export async function GET() {
   const info: object = {
     communityList: {
       uri: "/api/communities",
