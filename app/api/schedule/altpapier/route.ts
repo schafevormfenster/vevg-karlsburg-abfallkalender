@@ -10,7 +10,7 @@ import { filterEventsByWasteType } from "../../../../src/calendar/utils/filterEv
 import { filterEventsByTimespan } from "../../../../src/calendar/utils/filterEventsByTimespan";
 const ics = require("ics");
 
-export const maxDuration: number = 420; // 7 minutes
+export const maxDuration: number = 300; // 5 minutes
 
 export async function GET() {
   const wasteType: VevgWasteType = "altpapier";

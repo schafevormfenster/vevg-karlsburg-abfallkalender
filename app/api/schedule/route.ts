@@ -7,7 +7,7 @@ import { getCommunityList } from "../../../src/communities/getCommunityList";
 import { fetchIcsFeedsDelayed } from "../../../src/calendar/fetchIcsFeedsDelayed";
 const ics = require("ics");
 
-export const maxDuration: number = 420; // 10 minutes
+export const maxDuration: number = 300; // 5 minutes
 
 export async function GET() {
   // get all communities
