@@ -61,7 +61,7 @@ export const vevgWasteTypeDescriptions: VevgWasteTypeDescription[] = [
   },
   {
     name: "Gelber Sack",
-    tags: ["Entsorgung", "Gelber Sack"],
+    tags: ["Entsorgung", "Gelber-Sack"],
     swords: ["gelben", "Säcke"],
     scope: "Ort",
   },
