@@ -79,6 +79,11 @@ export const vevgWasteTypeDescriptions: VevgWasteTypeDescription[] = [
     swords: ["Papiertonne", "Alba"],
   },
   {
+    name: "Papiertonne (Smiton)",
+    tags: ["Entsorgung", "Altpapier", "Papiertonne"],
+    swords: ["Papiertonne", "Smiton"],
+  },
+  {
     name: "Mobile Schadstoffsammlung",
     tags: ["Entsorgung", "Schadstoffe"],
     swords: ["Schadstoffsammlung"],
