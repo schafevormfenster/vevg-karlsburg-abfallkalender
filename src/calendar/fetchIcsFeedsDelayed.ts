@@ -1,5 +1,6 @@
 import { VevgIcsQuery, VevgProperIcsEvent } from "../vevg.types";
 import { fetchIcsFeedCached } from "./fetchIcsFeed";
+import { sortEvents } from "./utils/sortEvents";
 
 export const fetchIcsFeedsDelayed = async (
   queries: VevgIcsQuery[],
@@ -28,30 +29,6 @@ export const fetchIcsFeedsDelayed = async (
     await new Promise((f) => setTimeout(f, 100)); // let the vevg website breath
   }
 
-  // sort "allEventsFromIcsData" by start[0], start[1], start[2]
-  allEventsFromIcsData.sort((a, b) => {
-    const aStart = a.start;
-    const bStart = b.start;
-    if (aStart[0] < bStart[0]) {
-      return -1;
-    }
-    if (aStart[0] > bStart[0]) {
-      return 1;
-    }
-    if (aStart[1] < bStart[1]) {
-      return -1;
-    }
-    if (aStart[1] > bStart[1]) {
-      return 1;
-    }
-    if (aStart[2] < bStart[2]) {
-      return -1;
-    }
-    if (aStart[2] > bStart[2]) {
-      return 1;
-    }
-    return 0;
-  });
-
-  return allEventsFromIcsData;
+  // sort
+  return sortEvents(allEventsFromIcsData);
 };
